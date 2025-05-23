@@ -55,8 +55,8 @@ Follow these instructions to set up and run the project locally.
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/ShivaKrishnaReddyBurra/my-portfolio.git
-   cd my-portfolio
+   git clone https://github.com/ShivaKrishnaReddyBurra/portfolio-v2.git
+   cd portfolio-v2
    ```
 
 2. **Install Dependencies**
