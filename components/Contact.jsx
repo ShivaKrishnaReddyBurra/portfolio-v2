@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { FaEnvelope, FaLinkedin, FaGithub, FaMapMarkerAlt, FaPhone, FaPaperPlane, FaUser, FaHeart, FaRocket } from 'react-icons/fa';
+import { FaEnvelope, FaLinkedin, FaGithub, FaMapMarkerAlt, FaPhone, FaPaperPlane, FaUser, FaHeart, FaRocket, FaInstagram, FaFacebook } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -121,6 +122,24 @@ const Contact = () => {
       href: 'https://github.com/ShivaKrishnaReddyBurra',
       gradient: 'from-gray-700 to-gray-900',
     },
+    {
+      icon: <FaInstagram size={16} className="w-4 h-4" />,
+      label: 'Instagram',
+      href: 'https://www.instagram.com/shivkrish_1624',
+      gradient: 'from-pink-500 to-pink-600',
+    },
+    {
+      icon: <FaFacebook size={16} className="w-4 h-4" />,
+      label: 'Facebook',
+      href: 'https://www.facebook.com/shivakrishnareddy.burra',
+      gradient: 'from-blue-600 to-blue-700',
+    },
+    {
+      icon: <FaXTwitter size={16} className="w-4 h-4" />,
+      label: 'Twitter',
+      href: 'https://x.com/ShivKrish_2k4',
+      gradient: 'from-black to-gray-800',
+    }
   ];
 
   return (
