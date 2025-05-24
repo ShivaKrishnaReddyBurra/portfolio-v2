@@ -314,13 +314,13 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className={`text-center mt-8 sm:mt-12 lg:mt-16 transition-all duration-800 delay-600 ${isVisible ? 'animate-slideInUp' : 'opacity-0 transform translate-y-10'}`}>
+        {/* <div className={`text-center mt-8 sm:mt-12 lg:mt-16 transition-all duration-800 delay-600 ${isVisible ? 'animate-slideInUp' : 'opacity-0 transform translate-y-10'}`}>
           <div className="inline-flex items-center gap-2 btn-primary px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 lg:py-4 hover-lift group">
             <FaHeart className="group-hover:animate-pulse text-pink-300 w-4 h-4" />
             <span className="font-semibold text-sm sm:text-base">Let's Build Something Amazing Together</span>
             <FaRocket className="group-hover:animate-bounce w-4 h-4" />
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
