@@ -90,7 +90,7 @@ function ProfilePage() {
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
               <a
-                href="/resume.pdf"
+                href="/ShivaKrishnaReddyBurra_Resume.pdf"
                 download
                 className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 overflow-hidden"
               >
