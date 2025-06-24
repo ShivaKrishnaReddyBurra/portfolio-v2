@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { FaMicrophone, FaRegHandPaper, FaTasks, FaGithub, FaExternalLinkAlt, FaCode, FaRocket } from 'react-icons/fa';
+import { FaMicrophone, FaRegHandPaper, FaTasks, FaGithub, FaExternalLinkAlt, FaCode, FaRocket, FaLeaf } from 'react-icons/fa';
 
 const projects = [
   {
@@ -39,6 +39,30 @@ const projects = [
     demo: '#',
     gradient: 'from-teal-400 to-blue-500',
   },
+  {
+    id: 4,
+    title: 'GreenThicks',
+    description: 'An E-commerce website for orgnic products, built with Next.js and node.js. Depolyed it using azure and MongoDB as the database.',
+    features: ['Product catalog', 'Shopping cart', 'User authentication', 'Order management'],
+    icon: <FaLeaf />,
+    technologies: ['Next.js', 'Node.js', 'MongoDB', 'JWT'],
+    color: '#6C5B7B',
+    github: 'https://github.com/ShivaKrishnaReddyBurra/greenthicks-frontend',
+    demo: 'https://greenthicks.live/',
+    gradient: 'from-purple-400 to-indigo-500'
+  },
+  {
+    id: 5,
+    title: 'CAPTAIN-OS',
+    description: 'An operating system for gaming and productivity, built with C and Assembly language. Currently in development. It features a kernel and a basic command line interface, multitasking capabilities, and a file system.',
+    features: ['Kernel development', 'Command line interface', 'Multitasking', 'File system'],
+    icon: <FaCode />,
+    technologies: ['C', 'Assembly Language'],
+    color: '#F8B400',
+    github: 'https://github.com/ShivaKrishnaReddyBurra/CAPTAIN-OS',
+    demo: '#',
+    gradient: 'from-yellow-400 to-orange-500'
+  }
   
 ];
 
