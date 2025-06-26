@@ -110,26 +110,8 @@ my-portfolio/
 ├── README.md                 # This file
 ```
 
-## Contributing
-
-Contributions are welcome! To contribute:
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/your-feature`).
-3. Make your changes and commit (`git commit -m 'Add your feature'`).
-4. Push to the branch (`git push origin feature/your-feature`).
-5. Open a Pull Request.
-
-Please ensure your code follows the project's coding standards and includes appropriate tests.
-
-## License
-
-Distributed under the MIT License. See `LICENSE` file for more information.
-
 ## Contact
 
 - **GitHub**: [ShivaKrishnaReddyBurra](https://github.com/ShivaKrishnaReddyBurra)
 - **LinkedIn**: [Shiva Krishna Reddy Burra](https://www.linkedin.com/in/shivakrishnareddyburra)
 - **Email**: reddyburrashivakrishna@gmail.com
-
-Feel free to reach out for collaboration or feedback!
