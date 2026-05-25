@@ -88,21 +88,25 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Shiva Krishna Reddy Burra - Portfolio</title>
-        <meta name="description" content="Portfolio of Shiva Krishna Reddy Burra, a Full-Stack Developer and AI Enthusiast" />
-        <meta name="keywords" content="portfolio, full-stack developer, AI, web development, Shiva Krishna Reddy Burra" />
-        <meta name="author" content="Shiva Krishna Reddy Burra" />
+        {/* Primary title and description for this specific page */}
+        <title>Shiva Krishna Reddy Burra | Full-Stack Developer & AI Enthusiast – KITSW B22AI067</title>
+        <meta
+          name="description"
+          content="Official portfolio of Shiva Krishna Reddy Burra (shivakrishnareddyburra), Full-Stack Developer and AI Enthusiast. Student at KITSW, Roll No B22AI067. Projects in React, Next.js, AI/ML and more."
+        />
+        {/* Canonical: keep one authoritative URL */}
+        <link rel="canonical" href="https://www.shivakrishnareddyburra.me/" />
       </Head>
 
       {/* Loading Screen */}
-      <div 
-        id="loading-screen" 
+      <div
+        id="loading-screen"
         className="fixed inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center z-50 transition-all duration-500"
       >
         <div className="text-center">
           <div className="relative">
             <div className="w-20 h-20 border-4 border-purple-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-            <div className="absolute inset-0 w-20 h-20 border-4 border-blue-600 border-b-transparent rounded-full animate-spin mx-auto" style={{animationDirection: 'reverse', animationDuration: '0.8s'}}></div>
+            <div className="absolute inset-0 w-20 h-20 border-4 border-blue-600 border-b-transparent rounded-full animate-spin mx-auto" style={{ animationDirection: 'reverse', animationDuration: '0.8s' }}></div>
           </div>
           <h2 className="text-white text-xl font-semibold mb-2">Loading Portfolio</h2>
           <p className="text-gray-400">Please wait...</p>
@@ -111,9 +115,17 @@ export default function Home() {
 
       {/* Navigation */}
       <Navbar />
-      
+
       {/* Main Content */}
       <main className="ml-0 md:ml-20 relative">
+        {/*
+          SEO NOTE: Each section component should use semantic HTML:
+          - <section> with a unique id (e.g. id="about", id="projects")
+          - A single <h1> on the ProfilePage with your full name
+          - <h2> headings for each section title
+          - aria-label on <section> tags for accessibility + SEO signals
+          These are controlled in the individual component files.
+        */}
         <ProfilePage />
         <About />
         <WorkExperience />

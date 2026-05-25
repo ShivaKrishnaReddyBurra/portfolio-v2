@@ -1,0 +1,6 @@
+# robots.txt for shivakrishnareddyburra.me
+User-agent: *
+Allow: /
+
+# Point crawlers to sitemap
+Sitemap: https://www.shivakrishnareddyburra.me/sitemap.xml
