@@ -61,7 +61,7 @@ const Contact = () => {
     setFormStatus('');
 
     try {
-      const response = await fetch(process.env.NEXT_PUBLIC_FORMSPREE_URL, {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
