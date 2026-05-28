@@ -118,7 +118,7 @@ const About = () => {
                   <h4 className="font-bold text-base sm:text-lg text-gray-800">Bachelor of Technology</h4>
                   <p className="text-purple-600 font-semibold text-sm sm:text-base">Computer Science (AI & ML)</p>
                   <p className="text-gray-600 text-sm sm:text-base">Kakatiya Institute of Technology & Science</p>
-                  <p className="text-xs sm:text-sm text-gray-500">2022 - Present • CGPA: 9.36/10.0</p>
+                  <p className="text-xs sm:text-sm text-gray-500">2022 - 2026 • CGPA: 8.8/10.0</p>
                 </div>
                 
                 <div className="border-l-4 border-blue-600 pl-4 sm:pl-6 py-2">

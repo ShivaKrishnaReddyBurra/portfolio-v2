@@ -33,7 +33,7 @@ This portfolio serves as a professional showcase of my work, including detailed 
 
 ## Technologies Used
 
-- **Frontend**: Next.js 14, React 18
+- **Frontend**: Next.js 15, React 19
 - **Styling**: Tailwind CSS 3, Custom CSS
 - **Icons**: React Icons
 - **Fonts**: Poppins (via Google Fonts)
