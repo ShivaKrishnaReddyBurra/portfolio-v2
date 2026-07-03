@@ -21,8 +21,8 @@ const About = () => {
   }, []);
 
   const stats = [
-    { number: '9.10', label: 'CGPA', icon: <FaGraduationCap />, ariaLabel: 'CGPA of 9.36' },
-    { number: '50+', label: 'Anime Series', icon: <FaHeart />, ariaLabel: 'Watched over 50 anime series' },
+    { number: '8.86', label: 'CGPA', icon: <FaGraduationCap />, ariaLabel: 'CGPA of 8.86' },
+    { number: '90+', label: 'Anime Series', icon: <FaHeart />, ariaLabel: 'Watched over 90 anime series' },
     { number: '5+', label: 'Projects', icon: <FaCode />, ariaLabel: 'Completed over 5 projects' },
     { number: '6', label: 'Six Months Of Experience', icon: <FaBrain />, ariaLabel: '6 months of experience' },
   ];
@@ -63,7 +63,7 @@ const About = () => {
                 My journey in technology includes developing a CNN-powered digit recognition system 
                 and creating scalable web applications. Currently pursuing my Bachelor of Technology 
                 in Computer Science (AI & ML) at Kakatiya Institute of Technology & Science, 
-                where I maintain a CGPA of 9.36/10.0.
+                where I maintain a CGPA of 8.86/10.0.
               </p>
 
               <p className="text-gray-700 leading-relaxed text-base sm:text-lg">
@@ -118,7 +118,7 @@ const About = () => {
                   <h4 className="font-bold text-base sm:text-lg text-gray-800">Bachelor of Technology</h4>
                   <p className="text-purple-600 font-semibold text-sm sm:text-base">Computer Science (AI & ML)</p>
                   <p className="text-gray-600 text-sm sm:text-base">Kakatiya Institute of Technology & Science</p>
-                  <p className="text-xs sm:text-sm text-gray-500">2022 - 2026 • CGPA: 8.8/10.0</p>
+                  <p className="text-xs sm:text-sm text-gray-500">2022 - 2026 • CGPA: 8.86/10.0</p>
                 </div>
                 
                 <div className="border-l-4 border-blue-600 pl-4 sm:pl-6 py-2">
@@ -152,7 +152,7 @@ const About = () => {
                 <div className="p-3 sm:p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl border border-purple-100">
                   <h4 className="font-bold text-base sm:text-lg text-gray-800 mb-2">🎌 Anime Enthusiast</h4>
                   <p className="text-gray-600 text-sm sm:text-base">
-                    Watched over 50 series including Naruto, One Piece, Jujutsu Kaisen, and Attack on Titan.
+                    Watched over 90 series including Naruto, One Piece, Jujutsu Kaisen, and Attack on Titan.
                   </p>
                 </div>
                 
