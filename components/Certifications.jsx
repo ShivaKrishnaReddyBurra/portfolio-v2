@@ -1,304 +1,161 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { FaAward, FaCalendarAlt, FaExternalLinkAlt, FaEye } from 'react-icons/fa';
+import { FaAward, FaCalendarAlt, FaEye } from 'react-icons/fa';
+import { MdClose } from 'react-icons/md';
+import Reveal from './Reveal';
+import SectionHeading from './SectionHeading';
+import HScroll from './HScroll';
 
 const certifications = [
-  {
-    image: '/images/cert1.jpg',
-    title: 'Problem Solving Through Programming In C',
-    issuer: 'NPTEL',
-    date: '2023',
-    description: 'Mastered problem-solving skills using C programming with hands-on experience in algorithmic thinking.',
-    category: 'Programming',
-    gradient: 'from-blue-500 to-cyan-500',
-  },
-  {
-    image: '/images/cert2.png',
-    title: 'Programming In Java',
-    issuer: 'NPTEL',
-    date: '2023',
-    description: 'Gained comprehensive proficiency in Java for enterprise applications and object-oriented programming.',
-    category: 'Programming',
-    gradient: 'from-orange-500 to-red-500',
-  },
-  {
-    image: '/images/cert3.png',
-    title: 'Programming in Python',
-    issuer: 'SWAYAM MHRD',
-    date: '2024',
-    description: 'Learned Python for web development, automation, and data analysis with practical projects.',
-    category: 'Programming',
-    gradient: 'from-green-500 to-emerald-500',
-  },
-  {
-    image: '/images/cert6.png',
-    title: 'Data Base Management System',
-    issuer: 'NPTEL',
-    date: '2024',
-    description: 'Acquired knowledge in database design, SQL, and data management principles for efficient data handling.',
-    category: 'Database',
-    gradient: 'from-red-500 to-yellow-500',
-  },
-  {
-    image: '/images/cert4.png',
-    title: 'Career Essentials in Generative AI',
-    issuer: 'Microsoft and LinkedIn',
-    date: '2024',
-    description: 'Explored cutting-edge generative AI concepts, applications, and industry best practices.',
-    category: 'AI/ML',
-    gradient: 'from-purple-500 to-pink-500',
-  },
-  {
-    image: '/images/cert5.png',
-    title: 'JavaScript',
-    issuer: 'HackerRank',
-    date: '2024',
-    description: 'Demonstrated advanced JavaScript skills through algorithmic challenges and coding assessments.',
-    category: 'Programming',
-    gradient: 'from-yellow-500 to-orange-500',
-  },
-  {
-    image: '/images/cert7.png',
-    title: 'Python (Basic)',
-    issuer: 'HackerRank',
-    date: '2024',
-    description: 'Showcased Python proficiency through coding challenges and problem-solving tasks.',
-    category: 'Programming',
-    gradient: 'from-blue-500 to-indigo-500',
-  },
-  {
-    image: '/images/cert8.png',
-    title: 'SQL (Basic)',
-    issuer: 'HackerRank',
-    date: '2024',
-    description: 'Validated SQL skills through practical exercises and database management challenges.',
-    category: 'Database',
-    gradient: 'from-green-500 to-teal-500',
-  },
-  {
-    image: '/images/cert9.png',
-    title: 'SQL (Intermediate)',
-    issuer: 'HackerRank',
-    date: '2024',
-    description: 'Demonstrated intermediate SQL skills through complex queries and database manipulation tasks.',
-    category: 'Database',
-    gradient: 'from-purple-500 to-violet-500',
-  },
-  {
-    image: '/images/cert10.png',
-    title: 'Web Development',
-    issuer: 'Udemy',
-    date: '2024',
-    description: 'Acquired skills in HTML, CSS, and JavaScript for building responsive and interactive web applications.',
-    category: 'Web Development',
-    gradient: 'from-pink-500 to-red-500',
-  }
+  { image: '/images/cert1.jpg', title: 'Problem Solving Through Programming In C', issuer: 'NPTEL', date: '2023', description: 'Mastered problem-solving skills using C programming with hands-on experience in algorithmic thinking.', category: 'Programming', color: '#4cc9f0' },
+  { image: '/images/cert2.png', title: 'Programming In Java', issuer: 'NPTEL', date: '2023', description: 'Gained comprehensive proficiency in Java for enterprise applications and object-oriented programming.', category: 'Programming', color: '#ff9f43' },
+  { image: '/images/cert3.png', title: 'Programming in Python', issuer: 'SWAYAM MHRD', date: '2024', description: 'Learned Python for web development, automation, and data analysis with practical projects.', category: 'Programming', color: '#2ed573' },
+  { image: '/images/cert6.png', title: 'Data Base Management System', issuer: 'NPTEL', date: '2024', description: 'Acquired knowledge in database design, SQL, and data management principles for efficient data handling.', category: 'Database', color: '#ff6b6b' },
+  { image: '/images/cert4.png', title: 'Career Essentials in Generative AI', issuer: 'Microsoft and LinkedIn', date: '2024', description: 'Explored cutting-edge generative AI concepts, applications, and industry best practices.', category: 'AI/ML', color: '#b57bff' },
+  { image: '/images/cert5.png', title: 'JavaScript', issuer: 'HackerRank', date: '2024', description: 'Demonstrated advanced JavaScript skills through algorithmic challenges and coding assessments.', category: 'Programming', color: '#f7df1e' },
+  { image: '/images/cert7.png', title: 'Python (Basic)', issuer: 'HackerRank', date: '2024', description: 'Showcased Python proficiency through coding challenges and problem-solving tasks.', category: 'Programming', color: '#5c7cfa' },
+  { image: '/images/cert8.png', title: 'SQL (Basic)', issuer: 'HackerRank', date: '2024', description: 'Validated SQL skills through practical exercises and database management challenges.', category: 'Database', color: '#20c997' },
+  { image: '/images/cert9.png', title: 'SQL (Intermediate)', issuer: 'HackerRank', date: '2024', description: 'Demonstrated intermediate SQL skills through complex queries and database manipulation tasks.', category: 'Database', color: '#9775fa' },
+  { image: '/images/cert10.png', title: 'Web Development', issuer: 'Udemy', date: '2024', description: 'Acquired skills in HTML, CSS, and JavaScript for building responsive and interactive web applications.', category: 'Web Development', color: '#ff6b9d' },
+  {image: '/images/cert11.png', title: 'Microsoft Certified: Azure AI Cloud Developer Associate', issuer: 'Microsoft', date: '2026', description: 'Validated expertise in developing AI solutions on Microsoft Azure, including machine learning and cognitive services.', category: 'AI/ML', color: '#0078d4'},
+  {image: '/images/cert12.png', title: 'Microsoft Certified: SQL AI Developer Associate', issuer: 'Microsoft', date: '2026', description: 'Demonstrated proficiency in SQL and AI development on Microsoft Azure, focusing on data-driven AI solutions.', category: 'Database', color: '#0078d4'}
+];
+
+const stats = [
+  { n: certifications.length, l: 'Certifications' },
+  { n: certifications.filter((c) => c.category === 'Programming').length, l: 'Programming' },
+  { n: new Set(certifications.map((c) => c.issuer)).size, l: 'Platforms' },
+  { n: Math.max(...certifications.map((c) => Number(c.date))), l: 'Latest Year' },
 ];
 
 const Certifications = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [selectedCert, setSelectedCert] = useState(null);
+  const [selected, setSelected] = useState(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const section = document.getElementById('certifications');
-    if (section) observer.observe(section);
-
-    return () => observer.disconnect();
-  }, []);
-
-  const openModal = (cert) => {
-    setSelectedCert(cert);
-  };
-
-  const closeModal = () => {
-    setSelectedCert(null);
-  };
+    if (!selected) return;
+    const onKey = (e) => e.key === 'Escape' && setSelected(null);
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [selected]);
 
   return (
     <>
-      <section id="certifications" className="py-20 bg-gradient-to-br from-slate-50 via-purple-50 to-indigo-100 relative overflow-hidden">
-        {/* Background Animation Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob"></div>
-          <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-2000"></div>
-          <div className="absolute top-3/4 right-1/3 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob animation-delay-4000"></div>
-        </div>
+      <section id="certifications" aria-label="Certifications" className="relative py-14 sm:py-24 px-5 sm:px-8">
+        <div className="glow w-[380px] h-[380px] bg-[var(--hot)] bottom-0 -left-32 opacity-10" />
+        <div className="relative mx-auto max-w-7xl">
+          <SectionHeading
+            index="05"
+            label="Certifications"
+            title="Proof of"
+            outline="learning"
+            sub="Continuous learning through industry-recognized certifications in programming, web development, and AI/ML."
+          />
 
-        <div className="container mx-auto px-4 relative z-10">
-          {/* Section Header */}
-          <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'animate-fadeIn' : 'opacity-0 transform translate-y-10'}`}>
-            <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/70 backdrop-blur-sm border border-purple-200 rounded-full text-purple-700 text-sm font-medium mb-6">
-              <FaAward className="text-yellow-400" />
-              Professional Certifications
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
-              Certifications & Achievements
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Continuous learning through industry-recognized certifications in programming, web development, and emerging technologies like AI/ML.
-            </p>
-            <div className="flex justify-center gap-2 mt-6">
-              <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-              <div className="w-8 h-2 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full"></div>
-              <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse animation-delay-1000"></div>
-            </div>
-          </div>
-
-          {/* Certifications Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {certifications.map((cert, index) => (
-              <div
-                key={index}
-                className={`group card transition-all duration-700 ${isVisible ? 'animate-slideInUp' : 'opacity-0 transform translate-y-10'}`}
-                style={{ animationDelay: `${index * 200}ms` }}
-              >
-                <div className="relative h-full overflow-hidden">
-                  {/* Gradient Border Effect */}
-                  <div className={`absolute inset-0 bg-gradient-to-r ${cert.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-2xl`}></div>
-                  {/* Certificate Image */}
-                  <div className="relative h-48 overflow-hidden rounded-t-2xl">
-                    <Image
-                      src={cert.image}
-                      alt={cert.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      priority={index < 3}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <button
-                      onClick={() => openModal(cert)}
-                      className="absolute top-4 right-4 p-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-white opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500 hover:bg-white/30"
-                      aria-label={`View ${cert.title} certificate`}
-                    >
-                      <FaEye size={16} />
-                    </button>
-                    <div className={`absolute top-4 left-4 px-3 py-1 bg-gradient-to-r ${cert.gradient} rounded-full text-white text-xs font-semibold shadow-lg`}>
-                      {cert.category}
-                    </div>
-                  </div>
-                  {/* Card Content */}
-                  <div className="p-6 space-y-4">
-                    <div className="space-y-2">
-                      <h3 className="text-xl font-bold text-gray-800 group-hover:gradient-text transition-all duration-500">
-                        {cert.title}
-                      </h3>
-                      <div className="flex items-center justify-between text-sm">
-                        <span className="text-gray-600 font-medium flex items-center gap-2">
-                          <FaAward size={12} />
-                          {cert.issuer}
-                        </span>
-                        <span className="text-gray-600 flex items-center gap-2">
-                          <FaCalendarAlt size={12} />
-                          {cert.date}
-                        </span>
-                      </div>
-                    </div>
-                    <p className="text-gray-600 text-sm leading-relaxed line-clamp-3">
-                      {cert.description}
-                    </p>
-                    <button
-                      onClick={() => openModal(cert)}
-                      className="w-full mt-4 btn-primary flex items-center justify-center gap-2 group/btn"
-                      aria-label={`View details of ${cert.title}`}
-                    >
-                      View Certificate
-                      <FaExternalLinkAlt className="group-hover/btn:translate-x-1 transition-transform duration-300" size={12} />
-                    </button>
-                  </div>
-                </div>
+          {/* Stats strip */}
+          <Reveal className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10 rounded-2xl overflow-hidden border border-white/10 mb-10">
+            {stats.map((s) => (
+              <div key={s.l} className="bg-[var(--panel)] p-5 sm:p-6">
+                <div className="text-3xl sm:text-4xl font-bold text-acc">{s.n}</div>
+                <div className="text-mute text-xs sm:text-sm mt-1">{s.l}</div>
               </div>
             ))}
-          </div>
+          </Reveal>
 
-          {/* Stats Section */}
-          <div className={`mt-20 transition-all duration-1000 delay-1000 ${isVisible ? 'animate-slideInUp' : 'opacity-0 transform translate-y-10'}`}>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-              <div className="text-center group">
-                <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
-                  {certifications.length}
-                </div>
-                <div className="text-gray-600 text-sm font-medium">Certifications</div>
+          <HScroll className="flex gap-4 lg:grid lg:grid-cols-3 lg:gap-5">
+            {certifications.map((c, i) => (
+              <div key={c.title} className="snap-start shrink-0 w-[82%] sm:w-[46%] lg:w-auto">
+                <article
+                  className="panel panel-lift group h-full overflow-hidden flex flex-col cursor-pointer"
+                  onClick={() => setSelected(c)}
+                >
+                  <div className="relative h-44 sm:h-48 overflow-hidden bg-[#0c0c0f]">
+                    <Image
+                      src={c.image}
+                      alt={c.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      priority={i < 3}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--panel)] via-transparent to-transparent" />
+                    <span
+                      className="absolute top-3 left-3 px-3 py-1 rounded-full text-[0.7rem] font-semibold mono text-black"
+                      style={{ background: c.color }}
+                    >
+                      {c.category}
+                    </span>
+                    <span className="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/60 backdrop-blur grid place-items-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
+                      <FaEye size={14} />
+                    </span>
+                  </div>
+
+                  <div className="p-5 flex-1 flex flex-col gap-3">
+                    <h3 className="font-semibold text-lg leading-snug">{c.title}</h3>
+                    <div className="flex items-center justify-between text-xs text-mute mono">
+                      <span className="flex items-center gap-2">
+                        <FaAward /> {c.issuer}
+                      </span>
+                      <span className="flex items-center gap-2">
+                        <FaCalendarAlt /> {c.date}
+                      </span>
+                    </div>
+                    <p className="text-mute text-sm leading-relaxed">{c.description}</p>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelected(c);
+                      }}
+                      aria-label={`View ${c.title} certificate`}
+                      className="mt-auto pt-2 text-left text-sm font-semibold text-acc hover:underline"
+                    >
+                      View certificate →
+                    </button>
+                  </div>
+                </article>
               </div>
-              <div className="text-center group">
-                <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
-                  {certifications.filter(cert => cert.category === 'Programming').length}
-                </div>
-                <div className="text-gray-600 text-sm font-medium">Programming Languages</div>
-              </div>
-              <div className="text-center group">
-                <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
-                  4
-                </div>
-                <div className="text-gray-600 text-sm font-medium">Platforms</div>
-              </div>
-              <div className="text-center group">
-                <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
-                  2024
-                </div>
-                <div className="text-gray-600 text-sm font-medium">Latest Year</div>
-              </div>
-            </div>
-          </div>
+            ))}
+          </HScroll>
         </div>
       </section>
 
       {/* Modal */}
-      {selectedCert && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fadeIn">
-          <div className="card max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="relative">
+      {selected && (
+        <div
+          className="fixed inset-0 z-[80] bg-black/85 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-6"
+          onClick={() => setSelected(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={selected.title}
+        >
+          <div
+            className="modal-in panel w-full max-w-4xl max-h-[92vh] overflow-y-auto !rounded-b-none sm:!rounded-b-[22px]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative h-64 sm:h-[26rem] bg-white">
+              <Image src={selected.image} alt={selected.title} fill className="object-contain" sizes="(max-width: 768px) 100vw, 80vw" />
               <button
-                onClick={closeModal}
-                className="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-black/70 rounded-full text-white transition-colors duration-300"
-                aria-label="Close certificate modal"
+                onClick={() => setSelected(null)}
+                aria-label="Close certificate"
+                className="absolute top-3 right-3 w-10 h-10 rounded-full bg-black/70 text-white grid place-items-center hover:bg-black"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                <MdClose size={22} />
               </button>
-              <div className="relative h-96 rounded-t-2xl overflow-hidden">
-                <Image
-                  src={selectedCert.image}
-                  alt={selectedCert.title}
-                  fill
-                  className="object-contain bg-white"
-                  sizes="(max-width: 768px) 100vw, 80vw"
-                />
+            </div>
+            <div className="p-6 sm:p-8 space-y-4">
+              <span className="chip !text-black" style={{ background: selected.color, borderColor: selected.color }}>
+                {selected.category}
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-bold">{selected.title}</h3>
+              <div className="flex flex-wrap gap-x-6 gap-y-2 text-mute text-sm">
+                <span className="flex items-center gap-2"><FaAward className="text-acc" /> {selected.issuer}</span>
+                <span className="flex items-center gap-2"><FaCalendarAlt className="text-acc" /> {selected.date}</span>
               </div>
-              <div className="p-8 space-y-6">
-                <div className="space-y-4">
-                  <div className={`inline-flex px-4 py-2 bg-gradient-to-r ${selectedCert.gradient} rounded-full text-white text-sm font-semibold`}>
-                    {selectedCert.category}
-                  </div>
-                  <h3 className="text-3xl font-bold text-gray-800">
-                    {selectedCert.title}
-                  </h3>
-                  <div className="flex flex-wrap gap-6 text-gray-600">
-                    <div className="flex items-center gap-2">
-                      <FaAward className="text-yellow-400" />
-                      <span>Issuer: {selectedCert.issuer}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <FaCalendarAlt className="text-blue-400" />
-                      <span>Date: {selectedCert.date}</span>
-                    </div>
-                  </div>
-                </div>
-                <p className="text-gray-600 text-lg leading-relaxed">
-                  {selectedCert.description}
-                </p>
-              </div>
+              <p className="text-[#c9c9d1] leading-relaxed">{selected.description}</p>
             </div>
           </div>
         </div>
