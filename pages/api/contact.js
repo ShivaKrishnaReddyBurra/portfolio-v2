@@ -1,5 +1,8 @@
 import nodemailer from 'nodemailer';
 
+const esc = (v) =>
+  String(v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method not allowed' });
@@ -24,12 +27,12 @@ export default async function handler(req, res) {
       from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_USER,
       replyTo: email,
-      subject: `New message from ${name}`,
+      subject: `New message from ${String(name).replace(/[\r\n]/g, ' ')}`,
       html: `
         <h3>New Contact Form Submission</h3>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong><br/>${message}</p>
+        <p><strong>Name:</strong> ${esc(name)}</p>
+        <p><strong>Email:</strong> ${esc(email)}</p>
+        <p><strong>Message:</strong><br/>${esc(message).replace(/\n/g, '<br/>')}</p>
       `,
     });
     return res.status(200).json({ ok: true });
